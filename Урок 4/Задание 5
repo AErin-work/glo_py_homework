@@ -1,0 +1,11 @@
+sec = int(input())
+
+hour = sec // 3600
+
+ostatok = sec - (hour * 3600)
+
+min = ostatok // 60
+
+ostatok1 = ostatok - (min * 60)
+
+print(sec, 'секунд - это', hour, 'час', min, 'минут', ostatok1, 'сек')
