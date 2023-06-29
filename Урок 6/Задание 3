@@ -1,0 +1,7 @@
+s = input()
+x = input()
+z = input()
+
+m = max(s, x, z)
+
+print(m)
