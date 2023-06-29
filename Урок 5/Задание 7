@@ -1,0 +1,27 @@
+a = int(input())
+
+
+if a == 0:
+    print('Зеленый')
+elif a > 0 and a < 11:
+    if a % 2 == 0:
+        print('Черный')
+    else:
+        print('Красный')
+elif a > 10 and a < 19:
+    if a % 2 == 0:
+        print('Красный')
+    else:
+        print('Черный')
+elif a > 18 and a < 29:
+    if a % 2 == 0:
+        print('Черный')
+    else:
+        print('Красный')
+elif a > 28 and a < 37:
+    if a % 2 == 0:
+        print('Красный')
+    else:
+        print('Черный')
+else:
+    print('ошибка ввода')
