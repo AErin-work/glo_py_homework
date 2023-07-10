@@ -1,0 +1,9 @@
+n = int(input())
+counter = 1
+for i in range(n + 1):
+    if i % 10 == 2 or i % 10 == 9:
+        counter = counter * i
+if counter > 1:
+    print(counter)
+else:
+    print(0)
