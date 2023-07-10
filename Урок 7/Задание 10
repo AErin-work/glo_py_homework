@@ -1,0 +1,15 @@
+n = int(input())
+flag_yes = 0
+flag_no = 0
+
+for i in range(n):
+    m = int(input())
+    if m % 2 == 0:
+        flag_yes = flag_yes + 1
+    else:
+        flag_no = flag_no + 1
+
+if flag_yes == 0:
+    print('YES')
+else:
+    print('NO')
