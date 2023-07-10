@@ -1,0 +1,14 @@
+n = int(input())
+n1 = n
+total = 0
+
+while n != 0:
+    last_digit = n % 10
+    total += last_digit
+    n = n // 10
+
+
+if (n1 % total) == 0:
+    print('YES')
+else:
+    print('NO')
