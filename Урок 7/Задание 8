@@ -1,0 +1,15 @@
+n = int(input())
+maximum = 0
+minimum = 999999999999999999999999999999999999999999999999999
+
+for i in range(n):
+    m = int(input())
+    if m >= 2:
+        if m > maximum:
+            maximum = m
+        if m < minimum:
+            minimum = m
+
+
+print(minimum)
+print(maximum)
