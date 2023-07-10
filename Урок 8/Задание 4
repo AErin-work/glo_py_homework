@@ -1,0 +1,16 @@
+n = int(input())
+minimum = 9
+maximum = 0
+
+if n >= 10:
+    while n != 0:
+        last_digit = n % 10
+        n = n // 10
+        if last_digit > maximum:
+            maximum = last_digit
+        if last_digit < minimum:
+            minimum = last_digit
+    print(f'Максимальная цифра равна {maximum}')
+    print(f'Минимальная цифра равна {minimum}')   
+else:
+    print('Введите число больше 10')
