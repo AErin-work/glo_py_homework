@@ -1,9 +1,8 @@
 while True:
     n = int(input())
     if n < 10:
-        n = int(input())
+        continue
+    elif n > 100:
+        break
     else:
         print(n)
-        n = int(input())
-    if n > 100:
-        break
