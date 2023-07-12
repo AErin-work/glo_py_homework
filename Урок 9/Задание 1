@@ -1,0 +1,9 @@
+while True:
+    n = int(input())
+    if n < 10:
+        n = int(input())
+    else:
+        print(n)
+        n = int(input())
+    if n > 500:
+        break
