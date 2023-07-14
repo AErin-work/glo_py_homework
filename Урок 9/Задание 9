@@ -1,0 +1,17 @@
+n = int(input())
+
+summ = 0
+summ2 = 0
+
+
+while n != 0:
+    while n != 0:
+        last_digit = n % 10
+        summ += last_digit
+        n = n // 10
+    while summ != 0:
+        last_digit = summ % 10
+        summ2 += last_digit
+        summ = summ // 10
+        
+print(summ2)
