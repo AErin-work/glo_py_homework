@@ -1,0 +1,6 @@
+s = input()
+
+if ord(s) in range(1040, 1072):
+    print('YES')
+else:
+    print('NO')
