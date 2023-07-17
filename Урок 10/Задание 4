@@ -1,0 +1,8 @@
+s = input()
+
+if ord(s) in range(97, 123):
+    s = s.upper()
+elif ord(s) in range(65, 91):
+    s = s.lower()
+
+print(s)
