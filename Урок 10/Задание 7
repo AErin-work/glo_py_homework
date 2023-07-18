@@ -1,0 +1,5 @@
+f = input()
+i = input()
+o = input()
+
+print(f'{f} {i[0]}.{o[0]}.')
