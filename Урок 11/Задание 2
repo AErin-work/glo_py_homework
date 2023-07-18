@@ -1,0 +1,4 @@
+a = input()
+values = a.split('\\')
+
+print('\n'.join(values))
