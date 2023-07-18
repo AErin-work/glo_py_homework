@@ -1,0 +1,12 @@
+my_list = []
+count = int(input())
+
+for i in range(count):
+    my_list.append(input())
+
+    
+find = input().lower()
+
+for string in my_list:
+    if find.lower() in string.lower():
+        print(string)
