@@ -1,0 +1,10 @@
+a = input()
+values = a.split(' ')
+res = []
+count = 0
+
+for i in values:
+    if values.count(i) == 1:
+        res.append(i)
+
+print(*res)
