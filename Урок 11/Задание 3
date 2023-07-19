@@ -1,0 +1,14 @@
+a = input()
+values = a.split('.')
+count = 0
+
+if len(values) == 4:
+    for i in range(len(values)):
+        if int(values[i]) <= 255:
+            count += 1
+    if count == 4:
+        print('YES')
+    else:
+        print('NO')
+else:
+    print('NO')
