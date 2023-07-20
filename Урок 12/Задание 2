@@ -1,0 +1,9 @@
+a = input()
+b = input()
+
+def list_(par):
+    par = par.split(' ')
+    par = list(map(int, par))
+    return max(par)
+
+print(list_(a) * list_(b))
