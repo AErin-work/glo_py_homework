@@ -1,0 +1,13 @@
+def price_delivery(quantity):
+    price = 0
+    first = 100
+    second = 50
+    for i in range(quantity):
+        if i == 0:
+            price += first
+        else:
+            price += second
+    return price
+            
+col = int(input())
+print(price_delivery(col))
