@@ -1,0 +1,12 @@
+def star_date(date):
+    list1 = date.split('.')
+    list1 = list(map(int, list1))
+    if list1[0] * list1[1] == list1[2] % 100:
+        result = 'True'
+    else:
+        result = 'False'
+    return result
+
+    
+date = input()
+print(star_date(date))
