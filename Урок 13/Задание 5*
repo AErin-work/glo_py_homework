@@ -1,0 +1,28 @@
+def is_valid(secret_number):
+    if secret_number.isdigit():
+        secret_number = int(secret_number)
+        if secret_number >= 1 and secret_number <= 100:
+            return True
+        else:
+            return False
+
+while True:
+    print('Добро пожаловать в игру "Угадай число наоборот". Ты загадываешь, я отгадываю')
+    print('Введи число от 1 до 100')
+    secret_number = input()
+    if not is_valid(secret_number):
+        continue
+    secret_number = int(secret_number)
+
+
+    max_number_arm = 100
+    min_number_arm = 1    
+    while True:
+        number_arm = (min_number_arm + max_number_arm) // 2
+        if secret_number < number_arm:
+                max_number_arm = number_arm
+        elif secret_number > number_arm:
+                min_number_arm = number_arm
+        else:
+                break
+    print(f'Твое число {number_arm}')
