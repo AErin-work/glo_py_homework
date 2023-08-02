@@ -1,0 +1,41 @@
+import random
+def hello():
+    global name
+    print('Привет, как тебя зовут?')
+    name = input()
+    print(f'Приятно познакомиться, {name}! Начнем наше тестирование')
+    return name
+
+questions = [
+'Сколько будет два плюс два умноженное на два?', 
+'Бревно нужно распилить на 10 частей, сколько надо сделать распилов?', 
+'На двух руках 10 пальцев. Сколько пальцев на 5 руках?', 
+'Укол делают каждые полчаса, сколько нужно минут для трех уколов?', 
+'Пять свечей горело, две потухли. Сколько свечей осталось?'
+]
+answers = [6, 9, 25, 60, 2]
+diagnoz = ['Идиот', 
+           'Кретин', 
+           'Дурак', 
+           'Нормальный', 
+           'Талант', 
+           'Гений']
+
+retry = 'Да'
+while retry == 'Да':
+    hello()
+    count_right_answers = 0
+    index = [0,1,2,3,4]
+    for i in range(len(questions)):
+        random_index = random.randint(0, len(index) - 1)
+        print('Вопрос №', i +1)
+        print(questions[index[random_index]])
+        user_answer = int(input())
+        right_answer = answers[index[random_index]]
+        if user_answer == right_answer:
+                count_right_answers += 1
+        index.remove(index[random_index])
+            
+    print(f'{name}, ваш диагноз : {diagnoz[count_right_answers]}')
+    print('Хочешь пройти тест еще раз?')
+    retry = input()
