@@ -1,0 +1,65 @@
+# games in word
+
+def update_user_word(secret_word, user_word, char):
+    new_user_word = ''
+    for i in range(len(secret_word)):
+        if secret_word[i] == char:
+            new_user_word += char
+        else:
+            new_user_word += user_word[i]
+    return new_user_word
+
+def rus_valid(char):
+    alphabet = ["а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я"]
+    if char in alphabet:
+        return True
+    else:
+        return False
+
+
+def silent_word(secret_word):
+    user_word = '*' * len(secret_word)
+    return user_word
+
+eche = 'Да'
+while eche == 'Да':
+
+    secret_word = 'академия'
+    user_word = silent_word(secret_word)
+    print('Подсказка. Загаданное слово, это учебное заведение, так же это слово есть в названии места где ты учишься. ')
+    count = 0
+    enter_char = []
+    print(user_word)
+    while user_word != secret_word:
+        print('Введите букву')
+        user_char = input().lower()
+        if len(user_char) != 1:
+            count += 1
+            continue
+        if not rus_valid(user_char):
+            print('Введена буква не русского алфавита')
+            count += 1
+            continue
+        if user_char in enter_char:
+            print('Вы уже вводили такую букву, введите другую букву')
+            continue
+
+        new_user_word = update_user_word(secret_word, user_word, user_char)
+
+        if user_word == new_user_word:
+            print('К сожалению, такой буквы нет в слове')
+            count += 1
+            enter_char.append(user_char)
+        else:
+            print('Поздравляем, такая буква есть в слове')
+            count += 1
+            enter_char.append(user_char)
+            user_word = new_user_word
+            print(user_word)
+
+    print('Ура, вы угадали загаданное слово за ', count, 'попыток')
+    print('Сыграем еще? Да или Нет')
+    eche = input()
+
+else:
+    print('Было приятно поиграть, ждем вас снова')
