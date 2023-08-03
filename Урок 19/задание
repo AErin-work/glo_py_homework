@@ -1,0 +1,78 @@
+import random
+
+def hello():
+    global name
+    print('Привет, как тебя зовут?')
+    name = input()
+    print(f'Приятно познакомиться, {name}! Начнем наше тестирование')
+    return name
+
+def get_user_answer():
+    user_input = input()
+    while not user_input.isdigit():
+        print('Введите число!')
+        user_input = input()
+    return int(user_input)
+
+def calculate_result(count_right_answers, count_questions):
+    right_answer_persent = count_right_answers * 100 // count_questions 
+    diagnoz = ['Идиот', 'Кретин', 'Дурак', 'Нормальный', 'Талант', 'Гений']
+    return diagnoz[right_answer_persent // 20]
+
+def safe_result(name, count_right_answers, results):
+    file = open('result.txt', 'a')
+    file.write(f'{name},{count_right_answers},{results}\n')
+    file.close()
+
+def show_user_results():
+    file = open('result.txt', 'r')
+
+    name = 'Имя'
+    count_right_answers = 'Кол-во правильных ответов'
+    result = 'Результат'
+    print(f'{name:15}{count_right_answers:30}{result:15}')
+
+    for line in file:
+        line = line.strip('\n')
+        values = line.split(',')
+        print(f'{values[0]:15}{values[1]:30}{values[2]:15}')
+    
+
+
+questions = [
+'Сколько будет два плюс два умноженное на два?', 
+'Бревно нужно распилить на 10 частей, сколько надо сделать распилов?', 
+'На двух руках 10 пальцев. Сколько пальцев на 5 руках?', 
+'Укол делают каждые полчаса, сколько нужно минут для трех уколов?', 
+'Пять свечей горело, две потухли. Сколько свечей осталось?'
+]
+answers = [6, 9, 25, 60, 2]
+
+
+
+while True:
+    hello()
+    count_right_answers = 0
+    count_questions = len(questions)
+    index = [0,1,2,3,4]
+    for i in range(len(questions)):
+        random_index = random.randint(0, len(index) - 1)
+        print('Вопрос №', i +1)
+        print(questions[index[random_index]])
+        user_answer = get_user_answer()
+        right_answer = answers[index[random_index]]
+        if user_answer == right_answer:
+                count_right_answers += 1
+        index.remove(index[random_index])
+    print(f'Количество правильных ответов = {count_right_answers}')
+    results = calculate_result(count_right_answers, count_questions)       
+    print(f'{name}, ваш диагноз : {results}')
+    safe_result(name, count_right_answers, results)
+    print('Хочешь посмотреть результаты всех попыток?')
+    show_results = input()
+    if show_results.upper() == 'ДА':
+        print(show_user_results())
+    print('Хочешь пройти тест еще раз?')
+    retry = input()
+    if retry.upper() != 'ДА':
+        break
